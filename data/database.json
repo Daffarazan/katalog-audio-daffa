@@ -1,0 +1,18 @@
+[
+    {
+        "id": "audio-1",
+        "nama": "FiiO JM21",
+        "kategori": "DAP",
+        "gambar": "image/fiiojm21.jpg",
+        "deskripsiSingkat": "Source andalan. Suaranya bersih, UI responsif, baterai awet untuk pemakaian seharian.",
+        "reviewLengkap": "Kombinasi DAC/AMP di DAP ini bikin staging terasa lebih luas. Sangat cocok buat dengerin file FLAC atau streaming hi-res. UI Android-nya juga bikin gampang install Apple Music/Spotify. Build quality-nya solid di genggaman."
+    },
+    {
+        "id": "audio-2",
+        "nama": "Aria 2 Red",
+        "kategori": "IEM",
+        "gambar": "image/aria2red.jpg",
+        "deskripsiSingkat": "Karakter suaranya asik buat berbagai genre. Bass punchy dan detail yang memanjakan telinga.",
+        "reviewLengkap": "Fitting-nya di kuping sangat pas, dipakai berjam-jam nggak bikin sakit. Vokal maju tapi nggak bikin capek (sibilant). Warna merah menawan dengan build quality premium khas Moondrop."
+    }
+]
