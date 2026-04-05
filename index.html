@@ -6,72 +6,94 @@
     <title>Audio Setup & Portofolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Sedikit custom CSS untuk efek kaca (glassmorphism) biar UI-nya cakep */
+        body { background-color: #1a1410; color: #f8fafc; }
         .glass-effect {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        body {
-            background-color: #0f172a; /* warna dark mode ala developer */
-            color: #f8fafc;
-        }
+        /* Animasi untuk popup */
+        .modal-masuk { animation: fadeIn 0.3s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
     </style>
 </head>
-<body class="antialiased selection:bg-indigo-500 selection:text-white">
+<body class="antialiased">
 
-    <header class="max-w-3xl mx-auto pt-20 pb-12 px-6">
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            Halo, saya <span class="text-indigo-400">Daffa</span>.
-        </h1>
-        <p class="text-lg text-slate-400 leading-relaxed">
-            Mahasiswa yang sedang mendalami UI/UX dan Human-Computer Interaction. Di waktu luang, saya suka ngulik setup audio dan mendengarkan musik dengan resolusi tinggi. Selamat datang di galeri kecil saya.
-        </p>
+    <header class="max-w-3xl mx-auto pt-20 pb-12 px-6 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Halo, saya <span class="text-indigo-400">Daffa</span>.</h1>
+        <p class="text-slate-400">UI/UX Enthusiast & Audio Gear Lover.</p>
     </header>
 
     <main class="max-w-3xl mx-auto px-6 pb-20">
         
-        <section id="koleksi-audio" class="mb-16">
-            <h2 class="text-2xl font-semibold mb-6 border-b border-slate-700 pb-2">🎧 My Daily Audio Drivers</h2>
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold mb-6 border-b border-slate-700 pb-2">🎧 Setup Audio Harian</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="glass-effect rounded-xl p-6 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/20 duration-300">
-                    <h3 class="text-xl font-bold mb-1 text-indigo-300">FiiO JM21</h3>
-                    <p class="text-sm text-slate-500 mb-4">Digital Audio Player (DAP)</p>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Source andalan saat ini. Suaranya bersih, UI-nya lumayan responsif, dan baterainya awet buat dipakai seharian sambil nugas atau nulis code.
-                    </p>
+                
+                <div class="glass-effect rounded-xl overflow-hidden transition hover:shadow-xl hover:shadow-indigo-500/20">
+                    <img src="image/fiiojm21.jpg" alt="FiiO JM21" class="w-full h-48 object-cover bg-slate-800">
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-indigo-300">FiiO JM21</h3>
+                        <p class="text-sm text-slate-500 mb-4">Digital Audio Player (DAP)</p>
+                        <p class="text-slate-300 text-sm mb-4">Source andalan. Suaranya bersih, UI responsif, baterai awet.</p>
+                        
+                        <button onclick="bukaPopup('FiiO JM21', 'Kombinasi DAC/AMP di DAP ini bikin staging terasa lebih luas. Sangat cocok buat dengerin file FLAC atau streaming hi-res. UI Android-nya juga bikin gampang install Apple Music/Spotify.')" 
+                                class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2 rounded-lg transition">
+                            Baca Review Lengkap
+                        </button>
+                    </div>
                 </div>
 
-                <div class="glass-effect rounded-xl p-6 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/20 duration-300">
-                    <h3 class="text-xl font-bold mb-1 text-indigo-300">IEM Favorit (Isi Merkmu)</h3>
-                    <p class="text-sm text-slate-500 mb-4">In-Ear Monitor</p>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Karakter suaranya asik buat dengerin berbagai macam genre. Bass-nya punchy tapi nggak nutupin vokal. Cocok banget di-pair sama FiiO JM21.
-                    </p>
+                <div class="glass-effect rounded-xl overflow-hidden transition hover:shadow-xl hover:shadow-indigo-500/20">
+                    <img src="image/aria2red.jpg" alt="Aria 2 Red" class="w-full h-48 object-cover bg-slate-800">
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-indigo-300">Aria 2 Red</h3>
+                        <p class="text-sm text-slate-500 mb-4">In-Ear Monitor (IEM)</p>
+                        <p class="text-slate-300 text-sm mb-4">Karakter suaranya asik buat berbagai genre. Bass punchy dan detail.</p>
+                        
+                        <button onclick="bukaPopup('Aria 2 Red', 'Fitting-nya di kuping sangat pas, dipakai berjam-jam nggak bikin sakit. Vokal maju tapi nggak bikin capek (sibilant). Warna merah menawan dengan build quality premium.')" 
+                                class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2 rounded-lg transition">
+                            Baca Review Lengkap
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="project-kampus">
-            <h2 class="text-2xl font-semibold mb-6 border-b border-slate-700 pb-2">💻 Selected Projects</h2>
-            
-            <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
-                <h3 class="text-xl font-bold mb-2">Mobile E-Book App Interface</h3>
-                <p class="text-sm text-indigo-400 mb-4">UI/UX Design • Storyboard</p>
-                <p class="text-slate-300 text-sm mb-4">
-                    Eksplorasi desain antarmuka aplikasi e-book interaktif. Project ini mengangkat cerita rakyat "Malin Kundang" menjadi pengalaman membaca digital yang lebih modern dan engaging.
-                </p>
-                <span class="inline-block bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded">Adobe Animate</span>
-                <span class="inline-block bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded ml-1">Figma</span>
             </div>
         </section>
 
     </main>
 
-    <footer class="text-center pb-8 text-slate-500 text-sm">
-        <p>Coded with ☕ on a Lenovo LOQ.</p>
-    </footer>
+    <div id="popup-review" class="fixed inset-0 bg-black/80 hidden items-center justify-center p-4 z-50">
+        <div class="bg-slate-800 rounded-xl p-6 max-w-md w-full glass-effect modal-masuk">
+            <h3 id="judul-popup" class="text-2xl font-bold text-indigo-400 mb-2">Judul</h3>
+            <p id="isi-popup" class="text-slate-300 mb-6">Isi review panjang akan muncul di sini...</p>
+            <button onclick="tutupPopup()" class="w-full border border-slate-600 hover:bg-slate-700 text-white py-2 rounded-lg transition">
+                Tutup
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk menampilkan popup dan mengubah teksnya
+        function bukaPopup(judul, deskripsi) {
+            document.getElementById('judul-popup').innerText = judul;
+            document.getElementById('isi-popup').innerText = deskripsi;
+            
+            let popup = document.getElementById('popup-review');
+            popup.classList.remove('hidden'); // Hilangkan class hidden
+            popup.classList.add('flex');      // Tambahkan class flex agar posisinya ke tengah
+        }
+
+        // Fungsi untuk menutup popup
+        function tutupPopup() {
+            let popup = document.getElementById('popup-review');
+            popup.classList.remove('flex');
+            popup.classList.add('hidden');
+        }
+    </script>
 
 </body>
 </html>
